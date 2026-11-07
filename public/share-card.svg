@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#191919" stroke-opacity=".07"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#fff8e9"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect x="59" y="79" width="500" height="480" fill="#191919"/>
+  <rect x="48" y="68" width="500" height="480" fill="#fffef8" stroke="#191919" stroke-width="4"/>
+  <g transform="translate(0 -7)">
+    <g fill="#191919" transform="translate(9 10)">
+      <polygon points="120,214 300,152 281,449 171,483 75,322"/>
+      <polygon points="329,152 480,205 528,335 416,480 310,449"/>
+    </g>
+    <g stroke="#191919" stroke-width="6" stroke-linejoin="round">
+      <polygon points="120,214 300,152 281,449 171,483 75,322" fill="#ffe35b"/>
+      <polygon points="329,152 480,205 528,335 416,480 310,449" fill="#ff92bb"/>
+    </g>
+    <path d="M315 123 293 491" fill="none" stroke="#191919" stroke-width="4" stroke-dasharray="2 13" stroke-linecap="round"/>
+    <g fill="#fffef8" stroke="#191919" stroke-width="4">
+      <circle cx="315" cy="123" r="8"/><circle cx="293" cy="491" r="8"/>
+    </g>
+    <g font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="59" font-weight="900" letter-spacing="-4" fill="#191919" text-anchor="middle">
+      <text x="193" y="340">fiddy</text>
+      <text x="411" y="340">fiddy</text>
+    </g>
+  </g>
+  <g fill="#191919" font-family="Helvetica, Arial, sans-serif">
+    <rect x="617" y="97" width="315" height="40" fill="#191919"/>
+    <text x="633" y="124" fill="#ffffff" font-family="Courier New, monospace" font-size="21" font-weight="700" letter-spacing="3">FIDDYFIDDY</text>
+    <text x="608" y="311" font-family="Arial Black, Helvetica, Arial, sans-serif" font-size="153" font-weight="900" letter-spacing="-12">50/50</text>
+    <text x="620" y="381" font-size="30" font-weight="600">Split the shape into</text>
+    <text x="620" y="424" font-size="30" font-weight="600">two equal areas.</text>
+    <text x="620" y="537" font-family="Courier New, monospace" font-size="18" font-weight="700" letter-spacing="1">5 LEVELS · NEW DAILY</text>
+  </g>
+  <g stroke="#191919" stroke-width="3">
+    <rect x="620" y="471" width="68" height="18" fill="#ffe35b"/>
+    <rect x="704" y="471" width="68" height="18" fill="#c5f477"/>
+    <rect x="788" y="471" width="68" height="18" fill="#ff92bb"/>
+    <rect x="872" y="471" width="68" height="18" fill="#8ed9ff"/>
+    <rect x="956" y="471" width="68" height="18" fill="#c6a2ef"/>
+  </g>
+</svg>
