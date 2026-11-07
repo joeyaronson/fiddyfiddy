@@ -115,7 +115,7 @@ function DailyGame({ date, today, onStartToday }: { date: string; today: string;
                 </aside>
             )}
             {saveFailed && <p className="save-notice" role="status">Progress could not be saved in this browser.</p>}
-            <footer>New puzzles at 00:00 UTC.</footer>
+            <footer>made by <a href="https://arons0n.com">arons0n</a></footer>
         </div>
     );
 }
