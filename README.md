@@ -76,3 +76,29 @@ removed in Cloudflare. Browser saves on the old `workers.dev` origin do not
 transfer to the new domain.
 
 References: [GitHub Pages workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), [custom domains](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+
+## Visit counts
+
+Visit counts use the hosted GoatCounter service. Sign up at
+<https://www.goatcounter.com/signup>, then set the public site address in
+`.env.production`:
+
+```dotenv
+GOATCOUNTER_URL=https://YOURCODE.goatcounter.com
+```
+
+The `/count` endpoint from the tracking snippet also works. Rebuild and deploy
+when changing this setting. Without it, no analytics script is included.
+Tracking is included only in production builds, so `npm run dev` sends no visits.
+GoatCounter ignores localhost by default; production previews on a public host
+can count visits. No custom game events are sent.
+
+For separate Dailybreak counts, add another site under GoatCounter Settings →
+sites and use its tracking address there. Both sites stay static, with no
+analytics server or npm dependency.
+
+To verify collection, visit the deployed site and check the GoatCounter dashboard.
+Ad blockers or network filtering may block `gc.zgo.at` or your GoatCounter
+subdomain, preventing those visits from being counted.
+
+Reference: [GoatCounter setup](https://www.goatcounter.com/help/start).
