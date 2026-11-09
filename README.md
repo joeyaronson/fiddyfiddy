@@ -46,19 +46,33 @@ The split-polygon favicon and home-screen icon are in `public/`. The social
 preview is `public/share-card.png` (1200 × 630), with an editable SVG alongside it.
 Open Graph and large-image card metadata are included in the HTML.
 
-When a public domain is chosen, set `SITE_URL` in `.env.local` or the hosting
-build environment, then rebuild. See `.env.example`. This sets absolute share
-image URLs, the canonical URL, and `og:url`. Without it, local development uses
-the relative image path and does not invent a public domain.
+GitHub Pages is configured in `.github/workflows/deploy.yml` to build and deploy
+`dist/` on pushes to `main`, using Node 24. It can also be run manually from
+GitHub Actions. No separate deployment token is required.
 
-Build output is `dist/`. `wrangler.jsonc` configures Cloudflare Workers Static Assets with SPA fallback. No Worker handler is required.
+Target URL: <https://fiddyfiddy.arons0n.com>.
 
-With Node 24, install the deployment CLI when ready:
+One-time setup, matching Dailybreak:
 
-```sh
-npm install -D wrangler
-npm run build
-npx wrangler deploy
-```
+1. In `joeyaronson/fiddyfiddy` → Settings → Pages, set the publishing source to **GitHub Actions**.
+2. Set the Pages custom domain to **fiddyfiddy.arons0n.com** and save it before adding the DNS record.
+3. In Squarespace DNS, add a **CNAME** with host **fiddyfiddy** and data **joeyaronson.github.io**. Keep the existing `@`, `www`, and `dailybreak` records.
+4. Push the project to `main` and check the **Deploy GitHub Pages** workflow in the Actions tab.
+5. Once the certificate is ready, enable **Enforce HTTPS** in Pages settings.
 
-For automatic deployment, connect the repository to Cloudflare Workers Builds with Node 24, build command `npm run build`, and deploy command `npx wrangler deploy` after adding Wrangler. Hosting has not been provisioned or deployed.
+Vite's default base `/` is correct for this custom domain. A repository-path URL
+such as `joeyaronson.github.io/fiddyfiddy/` would need a different base. Custom
+domains for Actions deployments are configured in Pages settings; no `CNAME`
+file is needed.
+
+`.env.production` sets `SITE_URL` to the custom domain for absolute share image
+URLs, the canonical URL, and `og:url`. Override it in `.env.production.local` or
+the build environment if the domain changes. See `.env.example`.
+
+The game is static and needs no server or SPA routing fallback. Cloudflare is
+no longer used by the build or deployment workflow. After the custom domain is
+working, the old Cloudflare Worker and any Workers Builds integration can be
+removed in Cloudflare. Browser saves on the old `workers.dev` origin do not
+transfer to the new domain.
+
+References: [GitHub Pages workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), [custom domains](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
